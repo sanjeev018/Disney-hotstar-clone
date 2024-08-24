@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: "Lexend", sans-serif !important;
+}
+
+/* Hide both arrows by default */
+.slick-prev,
+.slick-next {
+    display: none !important;
+}
+
+/* Show only the right arrow when hovering over the slider container or images */
+.slider-container:hover .slick-next {
+    display: block !important;
+    right: -25px;
+    /* Adjust position to your needs */
+}
+
+.slider-container:hover .slick-prev {
+    display: none !important;
+}
+
+/* Optionally, adjust the appearance of the right arrow */
+.slick-next {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* border-radius: 50%; */
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+}
+
+/* Additional styles for mobile or responsive adjustments */
+@media (max-width: 768px) {
+    .slick-next {
+        right: 0;
+    }
+}
