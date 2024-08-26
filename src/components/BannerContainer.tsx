@@ -31,7 +31,7 @@ const BannerContainer = () => {
       <div>
         {/* <h1 className='text-slate-300 pt-60 font-bold text-4xl'>Stree</h1> */}
 
-        <img src={streelogo} className="w-48 mt-24" />
+        <img src={streelogo} alt="banner" className="w-48 mt-24" />
 
         <div className="flex">
           <h1 className="text-white font-bold"> 2018 . 2h 7m . Hindi . </h1>

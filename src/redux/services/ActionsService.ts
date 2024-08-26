@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { BASE_URL, OMDB_API_KEY } from "../../constant";
-import { url } from "inspector";
 
 // Define a service using a base URL and expected endpoints
 export const ActionsApi = createApi({

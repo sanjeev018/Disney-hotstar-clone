@@ -15,8 +15,7 @@ import { useNavigate } from "react-router-dom";
 // generics
 const SideNavigation = () => {
   const [touch, setTouch] = useState<boolean>(false);
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
 
   return (
     <div
@@ -32,6 +31,7 @@ const SideNavigation = () => {
               width={90}
               src={disneylogo}
               className="cursor-pointer ml-2"
+              alt="main-logo"
             />
             <button className="text-yellow-400 bg-slate-900 ms-3 text-xs font-extralight rounded-lg px-2 tracking-wider py-1">
               Subscribe &gt;{" "}
@@ -45,7 +45,7 @@ const SideNavigation = () => {
             />
           </li>
 
-          <li onClick={()=> navigate("/explore")}>
+          <li onClick={() => navigate("/explore")}>
             <IoIosSearch
               color="#ffffff"
               className="h-6 w-6 hover:scale-150 ease-in-out duration-300"
@@ -94,36 +94,36 @@ const SideNavigation = () => {
       >
         <ul className="flex text-lg font-medium flex-col gap-y-7 mt-11 cursor-pointer">
           <li className="hover:scale-110 ease-in-out duration-300">
-            <a>Signin</a>
+            <a href="/">Signin</a>
           </li>
 
           <li className="hover:scale-110 ease-in-out duration-300">
-            <a> Search</a>
+            <a href="/"> Search</a>
           </li>
 
           <li className="hover:scale-110 ease-in-out duration-300">
-            <a> Home </a>
+            <a href="/"> Home </a>
           </li>
 
           <li className="hover:scale-110 ease-in-out duration-300">
-            <a> TV</a>
+            <a href="/"> TV</a>
           </li>
 
           <li className="hover:scale-110 ease-in-out duration-300">
-            <a> Movies</a>
+            <a href="/"> Movies</a>
           </li>
 
           <li className="hover:scale-110 ease-in-out duration-300">
-            <a> Sports</a>
+            <a href="/"> Sports</a>
           </li>
 
           <li className="hover:scale-110 ease-in-out duration-300">
-            <a> Categories</a>
+            <a href="/"> Categories</a>
           </li>
         </ul>
       </div>
-  
     </div>
   );
 };
+
 export default SideNavigation;

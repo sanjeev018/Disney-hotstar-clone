@@ -73,19 +73,19 @@ const App = (props: Props) => {
     if (!isLoadingDrama && !isFetchingDrama) {
       setDramaMovies(dramaData?.Search);
     }
-  });
+  }, [isLoadingDrama, isFetchingDrama, dramaData]);
   // Horror Movies
   useEffect(() => {
     if (!isLoadingHorror && !isFetchingHorror) {
       setHorrorMovies(horrorData?.Search);
     }
-  });
+  }, [isLoadingHorror, isFetchingHorror, horrorData]);
   // Adventure Movies
   useEffect(() => {
     if (!isLoadingAdventure && !isFetchingAdventure) {
       setAdventureMovies(adventureData?.Search);
     }
-  });
+  }, [isLoadingAdventure, isFetchingAdventure, adventureData]);
 
   // ------using fetching api----------
   // const [comedyMovies, seComedyMovies] = useState([]);

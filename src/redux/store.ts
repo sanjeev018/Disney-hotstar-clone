@@ -1,7 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 // rtk
-import { setupListeners } from "@reduxjs/toolkit/query";
 import { ActionsApi } from "./services/ActionsService";
 
 export const store = configureStore({

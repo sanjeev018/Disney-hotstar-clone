@@ -1,21 +1,17 @@
-import React, { useState } from "react";
-import { BASE_URL, OMDB_API_KEY } from "../constant";
+import { useState } from "react";
 import { useGetSearchMoviesMutation } from "../redux/services/ActionsService";
 import SideNavigation from "./SideNavigation";
-import SearchContainer from "./SearchContainer";
 
 const Explore = () => {
   const [searchValue, setSearchValue] = useState<string>("");
 
-  const [getSearch, getSearchInfo] = useGetSearchMoviesMutation();
+  const [getSearch] = useGetSearchMoviesMutation();
 
   const handleChange = (value: string) => {
     setSearchValue(value);
 
     getSearch(searchValue)
-      .then((res) => 
-        console.log(res)
-    )
+      .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
   return (
@@ -27,17 +23,16 @@ const Explore = () => {
               <SideNavigation />
             </div>
           </div>
-<div className="col-span-11 bg-slate-700"> 
-          <input
-            className="h-fit"
-            onChange={(e) => handleChange(e.target.value)}
-            value={searchValue}
-            type="search"
-            placeholder="Search Movie Name here"
-          />
+          <div className="col-span-11 bg-slate-700">
+            <input
+              className="h-fit"
+              onChange={(e) => handleChange(e.target.value)}
+              value={searchValue}
+              type="search"
+              placeholder="Search Movie Name here"
+            />
+          </div>
         </div>
-
-      </div>
       </div>
     </>
   );
