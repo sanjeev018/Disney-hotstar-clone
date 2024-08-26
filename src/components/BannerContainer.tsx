@@ -1,6 +1,7 @@
 import React from "react";
 import stree from "../images/stree.webp";
 import streelogo from "../images/streelogo.jpeg";
+import { FaPlay } from "react-icons/fa6";
 
 const bannerImg = [
   "https://w0.peakpx.com/wallpaper/849/749/HD-wallpaper-x-men-apocalypse-banner-poster-movies-widescreen.jpg",
@@ -10,7 +11,7 @@ const bannerImg = [
   "https://collider.com/wp-content/uploads/gangster-squad-poster-banner.jpg",
 ];
 
-const Welcome = () => {
+const BannerContainer = () => {
   const getRandonImg = (imgArray: string[]) => {
     const random = Math.floor(Math.random() * 1000) % imgArray?.length;
     return imgArray[random];
@@ -44,27 +45,27 @@ const Welcome = () => {
           <br /> becomes an unlikely saviour for his kind.
         </p>
 
-        <p className="text-white font-bold text-lg mt-5">
+        <p className="text-white font-semibold text-base mt-5">
           {" "}
           Horror | Paranormal | Dark | Supernatural
         </p>
         <div className="flex gap-4 mt-10">
-          <button
-            className="text-white font-bold text-xl px-16 py-3 rounded-md bg-slate-700 opacity-95
-         hover:animate-pulse"
-          >
-            Subscribe to Watch
+          <button className="text-xl pe-16 opacity-75 ps-14 py-3 rounded-md bg-slate-700 hover:animate-pulse flex">
+            {" "}
+            <FaPlay className="mt-1 mr-2 text-white"/>
+            <p className="text-white font-semibold"> Subscribe to Watch </p>
           </button>
 
-          <p className="text-white text-4xl bg-slate-700 px-3 rounded-md opacity-95 cursor-pointer hover:animate-pulse">
+          <p className="text-white text-4xl bg-slate-700 opacity-75 px-3 rounded-md cursor-pointer hover:animate-pulse">
             &#43;
           </p>
+
+      
         </div>
       </div>
 
-      <div></div>
     </div>
   );
 };
 
-export default Welcome;
+export default BannerContainer;

@@ -14,7 +14,9 @@ body {
 /* Hide both arrows by default */
 .slick-prev,
 .slick-next {
-    display: none !important;
+    /* display: none !important; */
+    visibility: hidden;
+    opacity: 0;
 }
 
 /* Show only the right arrow when hovering over the slider container or images */
@@ -26,16 +28,24 @@ body {
 
 .slider-container:hover .slick-prev {
     display: none !important;
+    transition-timing-function: linear;
 }
 
 /* Optionally, adjust the appearance of the right arrow */
 .slick-next {
-    background-color: rgba(0, 0, 0, 0.5);
-    /* border-radius: 50%; */
-    width: 40px;
-    height: 40px;
+    /* background-color: rgba(0, 0, 0, 0.5) !important; */
     z-index: 1;
+    visibility: visible;
+    opacity: 10;
+    transition: all 1s !important;
+    /* background-color: red !important; */
+    /* background: linear-gradient(to left, red, rgba(0, 0, 0, 0)) !important; */
+    width: 40px !important;
+    height: 100% !important;
+    background: linear-gradient(269.25deg, #0f1014 0.62%, rgba(15, 16, 20, 0) 99.33%) !important;
+
 }
+
 
 /* Additional styles for mobile or responsive adjustments */
 @media (max-width: 768px) {
