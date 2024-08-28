@@ -7,15 +7,16 @@ import { FaUserCircle } from "react-icons/fa";
 import { FaRadio } from "react-icons/fa6";
 import { MdOutlineSportsBaseball } from "react-icons/md";
 import { BiCategoryAlt } from "react-icons/bi";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
-// types
-// interface
-// enums
-// generics
 const SideNavigation = () => {
   const [touch, setTouch] = useState<boolean>(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const [activeNav, setActiveNav] = useState<string>("");
+
+  console.log("location", location.pathname);
 
   return (
     <div
@@ -45,16 +46,24 @@ const SideNavigation = () => {
             />
           </li>
 
-          <li onClick={() => navigate("/explore")}>
+          <li
+            onClick={() => {
+              navigate("/explore");
+            }}
+          >
             <IoIosSearch
-              color="#ffffff"
+              color={location.pathname === "/explore" ? "red" : "#ffffff"}
               className="h-6 w-6 hover:scale-150 ease-in-out duration-300"
             />
           </li>
 
           <li>
             <GoHome
-              color="#ffffff"
+              onClick={() => {
+                navigate("/");
+                setActiveNav("home");
+              }}
+              color={location.pathname === "/" ? "red" : "#ffffff"}
               className="h-6 w-6 hover:scale-150 ease-in-out duration-300"
             />
           </li>
@@ -97,12 +106,18 @@ const SideNavigation = () => {
             <a href="/">Signin</a>
           </li>
 
-          <li className="hover:scale-110 ease-in-out duration-300">
+          <li
+            onClick={() => navigate("/explore")}
+            className="hover:scale-110 ease-in-out duration-300"
+          >
             <a href="/"> Search</a>
           </li>
 
           <li className="hover:scale-110 ease-in-out duration-300">
-            <a href="/"> Home </a>
+            <a onClick={() => navigate("/")} href="/">
+              {" "}
+              Home{" "}
+            </a>
           </li>
 
           <li className="hover:scale-110 ease-in-out duration-300">
