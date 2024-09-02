@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import SideNavigation from "./components/SideNavigation";
 import BannerContainer from "./components/BannerContainer";
 import ScrollContainer from "./components/ScrollContainer";
-// import { BASE_URL, OMDB_API_KEY } from "./constant";
+
 import {
   useGetActionMoviesQuery,
   useGetAdventureMoviesQuery,
@@ -14,6 +14,8 @@ import {
 type Props = {};
 
 const App = (props: Props) => {
+  
+  
   const [actionsMovies, setActionsMovies] = useState([]);
   const [comdeyMovies, setComdeyMovies] = useState([]);
   const [dramaMovies, setDramaMovies] = useState([]);
@@ -86,6 +88,9 @@ const App = (props: Props) => {
       setAdventureMovies(adventureData?.Search);
     }
   }, [isLoadingAdventure, isFetchingAdventure, adventureData]);
+
+
+  https://www.omdbapi.com/?t=ironman&apikey=37cc3c6d
 
   // ------using fetching api----------
   // const [comedyMovies, seComedyMovies] = useState([]);

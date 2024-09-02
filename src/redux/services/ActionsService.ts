@@ -30,7 +30,7 @@ export const ActionsApi = createApi({
       query: (searchValue: string) => ({
         url: `?s=${searchValue}&apikey=${OMDB_API_KEY}`,
         method: "GET",
-      }),
+      }), 
     }),
   }),
 });

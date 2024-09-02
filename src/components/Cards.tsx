@@ -12,6 +12,7 @@ interface CardsPropsType {
 }
 
 const Cards = ({ url, alt="img not found" }: CardsPropsType) => {
+
   return (
     <img
       src={url}

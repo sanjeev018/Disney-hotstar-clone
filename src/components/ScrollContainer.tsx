@@ -16,6 +16,7 @@ type ScrollContainerPropsType = {
 };
 
 const ScrollContainer = ({ title, data }: ScrollContainerPropsType) => {
+
   const settings = {
     dots: false,
     infinite: true,
@@ -25,7 +26,7 @@ const ScrollContainer = ({ title, data }: ScrollContainerPropsType) => {
     arrows: true,
     initialSlide: 0, // Start from the first slide
   };
-
+// console.log(data , "scroll data")
   return (
     <div className="-z-50">
       <div className="px-10 slider-container">

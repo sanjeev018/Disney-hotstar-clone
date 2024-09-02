@@ -16,7 +16,7 @@ const BannerContainer = () => {
     const random = Math.floor(Math.random() * 1000) % imgArray?.length;
     return imgArray[random];
   };
-
+  
   return (
     <div
       style={{
@@ -30,7 +30,6 @@ const BannerContainer = () => {
     >
       <div>
         {/* <h1 className='text-slate-300 pt-60 font-bold text-4xl'>Stree</h1> */}
-
         <img src={streelogo} alt="banner" className="w-48 mt-24" />
 
         <div className="flex">
