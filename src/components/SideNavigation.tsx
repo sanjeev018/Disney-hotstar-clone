@@ -69,9 +69,6 @@ const SideNavigation = () => {
           </li>
           <li>
             <FiTv
-            onClick={() => { 
-              navigate("/trailer")
-            }}
               color="#ffffff"
               className="h-5 w-5 hover:scale-150 ease-in-out duration-300"
             />

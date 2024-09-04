@@ -1,8 +1,8 @@
-// import React, { useTransition } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Cards from "./Cards";
+import { Link } from "react-router-dom";
 
 type ScrollContainerPropsType = {
   title: string;
@@ -16,6 +16,7 @@ type ScrollContainerPropsType = {
 };
 
 const ScrollContainer = ({ title, data }: ScrollContainerPropsType) => {
+  console.log(data);
 
   const settings = {
     dots: false,
@@ -26,7 +27,7 @@ const ScrollContainer = ({ title, data }: ScrollContainerPropsType) => {
     arrows: true,
     initialSlide: 0, // Start from the first slide
   };
-// console.log(data , "scroll data")
+  // console.log(data , "scroll data")
   return (
     <div className="-z-50">
       <div className="px-10 slider-container">
@@ -34,9 +35,11 @@ const ScrollContainer = ({ title, data }: ScrollContainerPropsType) => {
         <Slider {...settings}>
           {data?.map((imags, index) => {
             return (
-              <div key={index} className="px-2 -z-50">
-                <Cards url={imags?.Poster} />
-              </div>
+              <Link key={index} to={`/trailer/${imags?.imdbID}`}>
+                <div key={index} className="px-2 -z-50">
+                  <Cards url={imags?.Poster} />
+                </div>
+              </Link>
             );
           })}
         </Slider>

@@ -8,19 +8,23 @@ import {
   useGetAdventureMoviesQuery,
   useGetComedyMoviesQuery,
   useGetDramaMoviesQuery,
+  useGetFantasyMoviesQuery,
   useGetHorrorMoviesQuery,
+  useGetThrillerMoviesQuery,
 } from "./redux/services/ActionsService";
 
 type Props = {};
 
 const App = (props: Props) => {
   
-  
   const [actionsMovies, setActionsMovies] = useState([]);
   const [comdeyMovies, setComdeyMovies] = useState([]);
   const [dramaMovies, setDramaMovies] = useState([]);
   const [horrorMovies, setHorrorMovies] = useState([]);
   const [adventureMovies, setAdventureMovies] = useState([]);
+  const [thrillerMovies, setThrillerMovies] = useState([]);
+  const [fantasyMovies, setFantasyMovies] = useState([]);
+
 
   const { isLoading, isFetching, data } = useGetActionMoviesQuery("");
 
@@ -47,6 +51,18 @@ const App = (props: Props) => {
     isFetching: isFetchingAdventure,
     data: adventureData,
   } = useGetAdventureMoviesQuery("");
+
+  const {
+    isLoading: isLoaidngThriller,
+    isFetching: isFetchingThriller,
+    data: thrillerData
+  } = useGetThrillerMoviesQuery(""); 
+
+  const {
+    isLoading: isLoadingFantasy,
+    isFetching: isFetchingFantasy,
+    data: fantasyData
+  } = useGetFantasyMoviesQuery(""); 
 
   // console.log(
   //   "isLoading",
@@ -89,40 +105,20 @@ const App = (props: Props) => {
     }
   }, [isLoadingAdventure, isFetchingAdventure, adventureData]);
 
+ // Thriller Movies
+ useEffect(() => {
+  if (!isLoaidngThriller && !isFetchingThriller) {
+    setThrillerMovies(thrillerData?.Search);
+  }
+}, [isLoaidngThriller, isFetchingThriller, thrillerData]);
 
-  https://www.omdbapi.com/?t=ironman&apikey=37cc3c6d
-
-  // ------using fetching api----------
-  // const [comedyMovies, seComedyMovies] = useState([]);
-
-  // const getActionMoviesData = () => {
-  //   fetch(`${BASE_URL}?s=action&type=movie&apikey=${OMDB_API_KEY}`)
-  //     .then((res) => res.json())
-  //     .then((result) => {
-  //       if (result?.Response === "True") {
-  //         setActionsMovies(result?.Search);
-  //       }
-  //     })
-  //     .catch((err) => console.error(err));
-  // };
-
-  // const getComedyMoviesData = () => {
-  //   fetch(`${BASE_URL}?s=comedy&type=movie&apikey=${OMDB_API_KEY}`)
-  //     .then((res) => res.json())
-  //     .then((result) => {
-  //       if (result?.Response === "True") {
-  //         seComedyMovies(result?.Search);
-  //       }
-  //     })
-  //     .catch((err) => console.error(err));
-  // };
-
-  // useEffect(() => {
-  //   getActionMoviesData();
-  //   getComedyMoviesData()
-  // }, []);
-  // ------using fetching api----------
-
+ // Fantasy Movies
+ useEffect(() => {
+  if (!isLoadingFantasy && !isFetchingFantasy) {
+    setFantasyMovies(fantasyData?.Search);
+  }
+}, [isLoadingFantasy, isFetchingFantasy, fantasyData]);
+ 
   return (
     <>
       <div className="grid grid-cols-12 h-screen">
@@ -145,8 +141,10 @@ const App = (props: Props) => {
           <ScrollContainer title="Horror Movies" data={horrorMovies} />
           {/* adventure Movies */}
           <ScrollContainer title="Adventure Movies" data={adventureMovies} />
-          {/* animation Movies */}
-          <ScrollContainer title="Animation Movies" data={adventureMovies} />
+          {/* thriller Movies */}
+          <ScrollContainer title="Thriller Movies" data={thrillerMovies} />
+          {/* fantasy Movies */}
+          <ScrollContainer title="Fantasy Movies" data={fantasyMovies} />
 
           {/* <ScrollContainer title="Comedy Movies" data={} />
           <ScrollContainer title="Horror Movies" data={} />

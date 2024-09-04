@@ -26,11 +26,26 @@ export const ActionsApi = createApi({
       query: () => `?s=adventure&type=movie&apikey=${OMDB_API_KEY}`,
     }),
 
+    getThrillerMovies: builder.query({
+      query: () => `?s=thriller&type=movie&apikey=${OMDB_API_KEY}`,
+    }),
+
+    getFantasyMovies: builder.query({
+      query: () => `?s=fantasy&type=movie&apikey=${OMDB_API_KEY}`,
+    }),
+
+    getTrailerMovies: builder.mutation({
+      query: (trailerId: string) => ({
+        url: `?apikey=${OMDB_API_KEY}&i=${trailerId}`,
+        method: "GET",
+      }),
+    }),
+
     getSearchMovies: builder.mutation({
       query: (searchValue: string) => ({
         url: `?s=${searchValue}&apikey=${OMDB_API_KEY}`,
         method: "GET",
-      }), 
+      }),
     }),
   }),
 });
@@ -43,5 +58,8 @@ export const {
   useGetDramaMoviesQuery,
   useGetHorrorMoviesQuery,
   useGetAdventureMoviesQuery,
+  useGetThrillerMoviesQuery,
+  useGetFantasyMoviesQuery,
   useGetSearchMoviesMutation,
+  useGetTrailerMoviesMutation,
 } = ActionsApi;
