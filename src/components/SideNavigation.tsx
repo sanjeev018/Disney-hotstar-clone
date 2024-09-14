@@ -13,10 +13,7 @@ const SideNavigation = () => {
   const [touch, setTouch] = useState<boolean>(false);
   const navigate = useNavigate();
   const location = useLocation();
-
   const [activeNav, setActiveNav] = useState<string>("");
-
-  // console.log("location", location.pathname);
 
   return (
     <div
@@ -69,26 +66,34 @@ const SideNavigation = () => {
           </li>
           <li>
             <FiTv
-              color="#ffffff"
+            onClick={()=> 
+              navigate("/contentTv")}
+              color={location.pathname === "/contentTv" ? "red" : "#ffffff"}
+              // color="#ffffff"
               className="h-5 w-5 hover:scale-150 ease-in-out duration-300"
             />
           </li>
           <li>
             <FaRadio
-              color="#ffffff"
+            onClick={()=> navigate("/contentMovies")}
+            color = {location.pathname === "/contentMovies" ? "red" : "#ffffff"}
+              // color="#ffffff"
               className="h-4 w-4 hover:scale-150 ease-in-out duration-300"
             />
           </li>
           <li>
             <MdOutlineSportsBaseball
-              color="#ffffff"
+            onClick={()=> navigate("/contentSports")}
+            color={location.pathname === "/contentSports" ? "red" : "#ffffff"}
+              // color="#ffffff"
               className="h-5 w-5 hover:scale-150 ease-in-out duration-300"
             />
           </li>
           <li>
             <BiCategoryAlt
-              color="#ffffff"
-              className="h-5 w-5 hover:scale-150 ease-in-out duration-300"
+            onClick={()=> navigate("/contentCategory")}
+            color={location.pathname === "/contentCategory" ? "red" : "#ffffff"}
+            className="h-5 w-5 hover:scale-150 ease-in-out duration-300"
             />
           </li>
         </ul>
@@ -120,15 +125,15 @@ const SideNavigation = () => {
             </a>
           </li>
 
-          <li className="hover:scale-110 ease-in-out duration-300">
+          <li className="hover:scale-110 ease-in-out duration-300 mt-1">
             <a href="/"> TV</a>
           </li>
 
-          <li className="hover:scale-110 ease-in-out duration-300">
+          <li className="hover:scale-110 ease-in-out duration-300 mt-[-1px]">
             <a href="/"> Movies</a>
           </li>
 
-          <li className="hover:scale-110 ease-in-out duration-300">
+          <li className="hover:scale-110 ease-in-out duration-300 mt-[-3px]">
             <a href="/"> Sports</a>
           </li>
 

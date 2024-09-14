@@ -3,6 +3,8 @@ import axios from "axios";
 import { BASE_URL } from "../constant";
 import { useParams } from "react-router-dom";
 import SideNavigation from "./SideNavigation";
+import { RingLoader } from "react-spinners";
+import ReactPlayer from "react-player";
 
 interface Movie {
   Title: string;
@@ -54,14 +56,14 @@ const Trailer = () => {
       </div>
       {loading &&
       <div className="h-screen w-screen flex justify-center items-center bg-slate-900">
-         <h1 className="text-3xl text-gray-200  text-center font-bold"> Loading....</h1>
+         <h1 className="text-3xl text-gray-200  text-center font-bold"> <RingLoader size={60} color="red"/> </h1>
            </div>
            }
       {error && 
       <p>Error: {error?.message}</p>} {/* Display error message */}
      
       {item && (
-        <div className="col-span-11  bg-slate-500 flex justify-center items-center">
+        <div className="col-span-11  bg-slate-900 flex justify-center items-center">
           <div>
             <div className="max-w-80 bg-gray-700 rounded-md m-5">
               <div className="h-48">
@@ -86,6 +88,7 @@ const Trailer = () => {
               </div>
             </div>
           </div>
+          {/* <ReactPlayer controls url='https://www.youtube.com/watch?v=cLRztK1zE6s' /> */}
         </div>
       )}
     </div>
